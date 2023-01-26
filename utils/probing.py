@@ -12,6 +12,7 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 from tqdm.notebook import tqdm
 from collections import deque
+from utils.loading_representations import loading_rep, loading_target
 
 
 def infinite_loop(data_loader):
@@ -344,6 +345,22 @@ def example():
     regressor.fit(X, y)
     print(regressor.predict(X))
 
+def train_probe():
+    config = Config(
+        training=Config.Training(lr=1e-3, weight_decay=1e-5, batch_size=32),
+        model=Config.Model(
+            in_dim=768,
+            out_dim=1,
+            n_hiddens=0,
+        ),
+    )
+    model = MLP(config.model)
+    print(model)
+    regressor = TorchRegressor(model, config)
+    representations = loading_rep('/ivi/ilps/projects/ltl-mt/probings/mnli_training_enligh_rep.npy')
+    labels = loading_target('/ivi/ilps/projects/ltl-mt/probings/mnli_training_english_labels.npy')
+    regressor.fit(representations, labels)
+    #print(regressor.predict(X))
 
 if __name__ == "__main__":
     example()
