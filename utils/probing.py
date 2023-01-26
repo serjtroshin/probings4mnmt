@@ -211,7 +211,6 @@ class Model(nn.Module):
             #             print(batch)
             inp, labels = batch
             pred = self.model(inp)
-
             loss = self.loss(pred.squeeze(-1), labels.squeeze(-1)).mean(0)
 
             self.optimizer.zero_grad()
