@@ -2,7 +2,6 @@ import argparse
 from pathlib import Path
 import numpy as np
 import torch
-from torch import nn
 
 from utils.loading_representations import loading_rep, loading_target
 from utils.config import data_configs
