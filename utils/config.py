@@ -28,4 +28,12 @@ data_configs = {
             valid_labels="mnli_valid_enligh_labels.npy",
             valid_rep="mnli_valid_enligh_rep.npy",
         ),
+    "cordInv_probing":
+        DataConfig(
+        data_dir="/ivi/ilps/projects/ltl-mt/probings/",
+            train_labels="cordInv_training_enligh_labels.npy",
+            train_rep="cordInv_training_enligh_rep.npy",
+            valid_labels="cordInv_valid_enligh_labels.npy",
+            valid_rep="cordInv_valid_enligh_rep.npy",
+        ),
 }
