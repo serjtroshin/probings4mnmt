@@ -43,9 +43,9 @@ def main():
     data_config = data_configs[args.data]
     x_train, x_test = load_data(args)
     weights = load_model(args)
-    projected_representation = stretch_along(x_train, weights)
+    projected_representation = stretch_along(torch.from_numpy(x_train), weights)
     save_data(projected_representation, data_config.train_rep[:-4]+'projected')
-    projected_representation = stretch_along(x_test, weights)
+    projected_representation = stretch_along(torch.from_numpy(x_test), weights)
     save_data(projected_representation, data_config.valid_rep[:-4] + 'projected')
 
 
