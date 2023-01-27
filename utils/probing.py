@@ -12,6 +12,7 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 from tqdm.notebook import tqdm
 from collections import deque
+from utils.loading_representations import loading_rep, loading_target
 
 
 def infinite_loop(data_loader):
