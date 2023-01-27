@@ -33,10 +33,14 @@ class LinearWeightRegressor(TorchRegressor):
         return regressor
 
     def save_weights(self, path):
-        torch.save(self.model.state_dict(), path)
+        weight = self.model.nn.weight.detach().numpy()
+        np.save(path, weight)
+        # torch.save(self.model.state_dict(), path)
 
     def load_weights(self, path):
-        self.model.load_state_dict(torch.load(path))
+        weight = np.load(path)
+        self.model.nn.weight = nn.Parameter(torch.from_numpy(weight))
+        # self.model.load_state_dict(torch.load(path))
 
 
 class LinearWeightClassifier(TorchClassifier):
@@ -177,7 +181,9 @@ def TorchLinearClassifier(args: argparse.Namespace):
                         patience=args.patience,
                     ),
                 )
-                model = LinearWeightClassifier(config=config, model=MLP(args=config.model))
+                model = LinearWeightClassifier(
+                    config=config, model=MLP(args=config.model)
+                )
                 train_losses, val_losses, X_val, y_val = model.fit(
                     X_train, y_train, return_val=True
                 )

@@ -147,7 +147,7 @@ class MLP(nn.Module):
         self.dropout = args.dropout
 
         if self.n_hiddens == 0:
-            self.nn = nn.Linear(self.in_dim, self.out_dim)
+            self.nn = nn.Linear(self.in_dim, self.out_dim, bias=False)
         else:
             layers = [
                 nn.Dropout(self.dropout),
