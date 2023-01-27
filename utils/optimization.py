@@ -68,7 +68,7 @@ class LinearWeightClassifier(TorchClassifier):
         return regressor
 
     def save_weights(self, path):
-        weight = self.model.nn.weight.detach().numpy()
+        weight = self.model.nn.weight.detach().cpu().numpy()
         np.save(path, weight)
         # torch.save(self.model.state_dict(), path)
 
