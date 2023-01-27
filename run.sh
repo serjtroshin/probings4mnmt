@@ -6,4 +6,4 @@ done
 python apply_linear_weight.py -d bert_english -e bert_greek | tee models/apply_bert_english_to_greek.log 2>&1
 
 # run:
-# sbatch -p cpu -c 10 --mem=16G -t 1-00:00:00 run.sh
+# sbatch -p gpu -c 4 --mem=16G -t 1-00:00:00 run.sh

@@ -1,0 +1,5 @@
+Namespace(data='bert_english', lr=0.001, weight_decay=1e-05, batch_size=32, num_updates=10000, patience=10, in_dim=768, out_dim=3, model_type='classifier', n_trials=10)
+Unique labels: [0 1 2]
+MLP classifier got: X_train (392702, 768), y_train: (392702,)
+pred: (2490,)
+Test metric (accuracy): 0.5216867469879518

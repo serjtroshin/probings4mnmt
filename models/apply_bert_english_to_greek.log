@@ -1,0 +1,10 @@
+Namespace(train_data='bert_english', eval_data='bert_greek', lr=0.001, weight_decay=1e-05, batch_size=32, num_updates=10000, patience=10, in_dim=768, out_dim=3, model_type='classifier')
+Unique labels: [0 1 2]
+Config(training=Config.Training(lr=0.001, weight_decay=1e-05, batch_size=32, valid_every=100, num_updates=10000, optimizer='AdamW', early_stoping=True, patience=10), model=Config.Model(in_dim=768, hidden_dim=128, out_dim=3, n_hiddens=0, dropout=0.0), seed=1, verbose=True, cuda_if_avail=True, eval_batch_size=8192)
+LinearWeightClassifier(
+  (model): MLP(
+    (nn): Linear(in_features=768, out_features=3, bias=False)
+  )
+  (loss): CrossEntropyLoss()
+)
+Test metric (accuracy): 0.47630522088353416
