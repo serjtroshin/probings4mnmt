@@ -24,9 +24,7 @@ data_configs = {
         valid_rep="mnli_valid_greek_rep.npy",
     ),
     "debug": DataConfig(
-        data_dir="/ivi/ilps/projects/ltl-mt/probings/",
-        train_labels="mnli_valid_enligh_labels.npy",
-        train_rep="mnli_valid_enligh_rep.npy",
+        data_dir="data/",
         valid_labels="mnli_valid_enligh_labels.npy",
         valid_rep="mnli_valid_enligh_rep.npy",
     ),
