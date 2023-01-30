@@ -18,10 +18,22 @@ data_configs = {
         valid_labels="mnli_valid_enligh_labels.npy",
         valid_rep="mnli_valid_enligh_rep.npy",
     ),
+    "bert_english_projected": DataConfig(
+        data_dir="/ivi/ilps/projects/ltl-mt/probings/",
+        train_labels="mnli_training_enligh_labels.npy",
+        train_rep="mnli_training_enligh_rep_projected.npy",
+        valid_labels="mnli_valid_enligh_labels.npy",
+        valid_rep="mnli_valid_enligh_rep_projected.npy",
+    ),
     "bert_greek": DataConfig(
         data_dir="/ivi/ilps/projects/ltl-mt/probings/",
         valid_labels="mnli_valid_greek_labels.npy",
         valid_rep="mnli_valid_greek_rep.npy",
+    ),
+    "bert_greek_projected": DataConfig(
+        data_dir="/ivi/ilps/projects/ltl-mt/probings/",
+        valid_labels="mnli_valid_greek_labels.npy",
+        valid_rep="mnli_valid_greek_rep_projected.npy",
     ),
     "debug": DataConfig(
         data_dir="data/",
@@ -54,5 +66,5 @@ class ModelConfig:
 
 
 model_configs ={
-    "cordInv": ModelConfig(probe_dir='models/cordInv_valid_enligh_labels.npy')
+    "cordInv": ModelConfig(probe_dir='models/linear_model_cordInv_probing.npy')
 }

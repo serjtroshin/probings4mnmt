@@ -11,7 +11,7 @@ def load_data(args):
     data_config = data_configs[args.data]
     train_rep = loading_rep(Path(data_config.data_dir, data_config.train_rep))
     valid_rep = loading_rep(Path(data_config.data_dir, data_config.valid_rep))
-    return train_rep, valid_rep
+    return  train_rep, valid_rep
 
 def save_data(embeddings, path):
     np.save(path, embeddings)
@@ -43,10 +43,10 @@ def main():
     data_config = data_configs[args.data]
     x_train, x_test = load_data(args)
     weights = load_model(args)
-    projected_representation = stretch_along(torch.from_numpy(x_train), weights)
-    save_data(projected_representation, data_config.train_rep[:-4]+'projected')
-    projected_representation = stretch_along(torch.from_numpy(x_test), weights)
-    save_data(projected_representation, data_config.valid_rep[:-4] + 'projected')
+    projected_representation = stretch_along(torch.from_numpy(x_train), torch.from_numpy(weights))
+    save_data(projected_representation, str(Path(data_config.data_dir, data_config.train_rep))+'projected')
+    projected_representation = stretch_along(torch.from_numpy(x_test), torch.from_numpy(weights))
+    save_data(projected_representation, str(Path(data_config.data_dir, data_config.valid_rep))+ 'projected')
 
 
 if __name__ == "__main__":
